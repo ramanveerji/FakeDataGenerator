@@ -30,7 +30,7 @@ except ValueError:
     print("Bot is quitting....")
     exit()
 except Exception as e:
-    print(f"Error - {str(e)}")
+    print(f'Error - {e}')
     print("Bot is quitting.....")
     exit()
 except ApiIdInvalidError:
@@ -46,10 +46,7 @@ oxi = bot.start(bot_token=TOKEN)
 async def is_admin(event, user):
     try:
         sed = await event.client.get_permissions(event.chat_id, user)
-        if sed.is_admin:
-            is_mod = True
-        else:
-            is_mod = False
+        is_mod = bool(sed.is_admin)
     except:
         is_mod = False
     return is_mod
@@ -58,10 +55,9 @@ async def is_admin(event, user):
 async def hi(event):
     if event.fwd_from:
         return
-    if event.is_group:
-        if not await is_admin(event, event.message.sender_id):
-            await event.reply("`You Should Be Admin To Do This!`")
-            return
+    if event.is_group and not await is_admin(event, event.message.sender_id):
+        await event.reply("`You Should Be Admin To Do This!`")
+        return
     fake = Faker()
     print("FAKE DETAILS GENERATED\n")
     name = str(fake.name())
