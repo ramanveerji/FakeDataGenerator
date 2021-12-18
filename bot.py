@@ -81,7 +81,7 @@ async def start(event):
                         [Button.inline("Help",data="help")]
                     ])
 
-@bin.on(events.callbackquery.CallbackQuery(data="help"))
+@oxi.on(events.callbackquery.CallbackQuery(data="help"))
 async def ex(event):
     await event.edit("**Actually, it's not a complecated task.** `/gen`: **For generate fake Data.**")
 
