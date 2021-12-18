@@ -83,7 +83,7 @@ async def start(event):
 
 @oxi.on(events.callbackquery.CallbackQuery(data="help"))
 async def ex(event):
-    await event.edit("**Actually, it's not a complecated task.** `/gen`: **For generate fake Data.**")
+    await event.edit("**Actually, it's not a complecated task.**\n `/gen`: **For generate fake Data.**")
 
 print ("Successfully Started")
 oxi.run_until_disconnected()
