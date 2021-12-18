@@ -44,7 +44,7 @@ oxi = bot.start(bot_token=TOKEN)
 
 # fake data generator
 
-@oxi.on(events.NewMessage(pattern="^[!?/]fakegen"))
+@oxi.on(events.NewMessage(pattern="^[!?/]gen"))
 async def hi(event):
     if event.fwd_from:
         return
